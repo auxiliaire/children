@@ -1,0 +1,35 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "com.personr.children"
+        },
+        "jhipsterVersion": "5.8.2",
+        "applicationType": "monolith",
+        "baseName": "children",
+        "packageName": "com.personr.children",
+        "packageFolder": "com/personr/children",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "h2Disk",
+        "prodDatabaseType": "mysql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "gradle",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "MWIzZTQ5ZjQyMDgyM2FhNjZiMTcxMWFlNzAxNDBlZGFlMzY0NzcyOGQzZWViY2I5MjhkNjU1MzdlMTdlOGNlODYyZDQ2OTZlMjIzODQ5NTAzNTg0MTM2ZGNmOTdiOTk2ZjcwMzhkNWU2ODViMWNjNmY0N2NkNzcxNTdjNTVmMWU=",
+        "clientFramework": "angularX",
+        "useSass": false,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": false
+    }
+}
