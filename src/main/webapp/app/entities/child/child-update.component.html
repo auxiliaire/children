@@ -41,10 +41,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" for="field_person">Person</label>
-                    <select class="form-control" id="field_person" name="person" [(ngModel)]="child.person" >
+                    <label class="form-control-label" for="field_parent">Parent</label>
+                    <select class="form-control" id="field_parent" name="parent" [(ngModel)]="child.parent" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="personOption.id === child.person?.id ? child.person : personOption" *ngFor="let personOption of people; trackBy: trackPersonById">{{personOption.name}}</option>
+                        <option [ngValue]="personOption.id === child.parent?.id ? child.parent : personOption" *ngFor="let personOption of people; trackBy: trackPersonById">{{personOption.name}}</option>
                     </select>
                 </div>
             </div>

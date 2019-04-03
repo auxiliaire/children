@@ -6,7 +6,7 @@ export interface IChild {
     name?: string;
     age?: number;
     preferences?: IPreference[];
-    person?: IPerson;
+    parent?: IPerson;
 }
 
 export class Child implements IChild {
@@ -15,6 +15,6 @@ export class Child implements IChild {
         public name?: string,
         public age?: number,
         public preferences?: IPreference[],
-        public person?: IPerson
+        public parent?: IPerson
     ) {}
 }

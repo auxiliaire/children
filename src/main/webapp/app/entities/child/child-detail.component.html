@@ -13,10 +13,10 @@
                 <dd>
                     <span>{{child.age}}</span>
                 </dd>
-                <dt><span>Person</span></dt>
+                <dt><span>Parent</span></dt>
                 <dd>
-                    <div *ngIf="child.person">
-                        <a [routerLink]="['/person', child.person?.id, 'view']">{{child.person?.name}}</a>
+                    <div *ngIf="child.parent">
+                        <a [routerLink]="['/person', child.parent?.id, 'view']">{{child.parent?.name}}</a>
                     </div>
                 </dd>
             </dl>

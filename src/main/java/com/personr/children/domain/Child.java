@@ -42,7 +42,7 @@ public class Child implements Serializable {
     private Set<Preference> preferences = new HashSet<>();
     @ManyToOne
     @JsonIgnoreProperties("children")
-    private Person person;
+    private Person parent;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -104,17 +104,17 @@ public class Child implements Serializable {
         this.preferences = preferences;
     }
 
-    public Person getPerson() {
-        return person;
+    public Person getParent() {
+        return parent;
     }
 
-    public Child person(Person person) {
-        this.person = person;
+    public Child parent(Person person) {
+        this.parent = person;
         return this;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setParent(Person person) {
+        this.parent = person;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

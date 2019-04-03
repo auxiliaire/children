@@ -98,6 +98,19 @@ public class HouseResource {
     }
 
     /**
+     * GET  /houses/:id : get the house by person "id".
+     *
+     * @param id the id of the person who owns the house to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the house, or with status 404 (Not Found)
+     */
+    @GetMapping("/house/{id}")
+    public ResponseEntity<House> getHouseByPerson(@PathVariable Long id) {
+        log.debug("REST request to get House : {}", id);
+        Optional<House> house = houseRepository.findOneByPersonId(id);
+        return ResponseUtil.wrapOrNotFound(house);
+    }
+
+    /**
      * DELETE  /houses/:id : delete the "id" house.
      *
      * @param id the id of the house to delete

@@ -1,5 +1,6 @@
 package com.personr.children.web.rest;
 import com.personr.children.domain.Child;
+import com.personr.children.domain.Preference;
 import com.personr.children.repository.ChildRepository;
 import com.personr.children.web.rest.errors.BadRequestAlertException;
 import com.personr.children.web.rest.util.HeaderUtil;
@@ -95,6 +96,19 @@ public class ChildResource {
         log.debug("REST request to get Child : {}", id);
         Optional<Child> child = childRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(child);
+    }
+
+    /**
+     * GET  /child/info/:id : get the preference for "id" child.
+     *
+     * @param id the id of the child to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the child, or with status 404 (Not Found)
+     */
+    @GetMapping("/child/info/{id}")
+    public ResponseEntity<Preference> getChildInfo(@PathVariable Long id) {
+        log.debug("REST request to get Preference (child info) : {}", id);
+        Optional<Preference> pref = Optional.ofNullable(childRepository.getFavorite(id));
+        return ResponseUtil.wrapOrNotFound(pref);
     }
 
     /**

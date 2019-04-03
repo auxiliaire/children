@@ -29,7 +29,7 @@
             "relationshipType": "many-to-one",
             "otherEntityName": "person",
             "otherEntityRelationshipName": "children",
-            "relationshipName": "person",
+            "relationshipName": "parent",
             "otherEntityField": "name"
         }
     ],

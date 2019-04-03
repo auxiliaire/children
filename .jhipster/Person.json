@@ -22,7 +22,7 @@
         {
             "relationshipType": "one-to-many",
             "otherEntityName": "child",
-            "otherEntityRelationshipName": "person",
+            "otherEntityRelationshipName": "parent",
             "relationshipName": "children"
         },
         {

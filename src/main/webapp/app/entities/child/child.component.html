@@ -17,7 +17,7 @@
             <th><span>ID</span></th>
             <th><span>Name</span></th>
             <th><span>Age</span></th>
-            <th><span>Person</span></th>
+            <th><span>Parent</span></th>
             <th></th>
             </tr>
             </thead>
@@ -27,8 +27,8 @@
                 <td>{{child.name}}</td>
                 <td>{{child.age}}</td>
                 <td>
-                    <div *ngIf="child.person">
-                        <a [routerLink]="['../person', child.person?.id, 'view' ]" >{{child.person?.name}}</a>
+                    <div *ngIf="child.parent">
+                        <a [routerLink]="['../person', child.parent?.id, 'view' ]" >{{child.parent?.name}}</a>
                     </div>
                 </td>
                 <td class="text-right">

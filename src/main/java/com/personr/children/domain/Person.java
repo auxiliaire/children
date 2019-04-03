@@ -36,7 +36,7 @@ public class Person implements Serializable {
     @Column(name = "age", nullable = false)
     private Integer age;
 
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "parent")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Child> children = new HashSet<>();
     @OneToOne(mappedBy = "person")
@@ -89,13 +89,13 @@ public class Person implements Serializable {
 
     public Person addChildren(Child child) {
         this.children.add(child);
-        child.setPerson(this);
+        child.setParent(this);
         return this;
     }
 
     public Person removeChildren(Child child) {
         this.children.remove(child);
-        child.setPerson(null);
+        child.setParent(null);
         return this;
     }
 
