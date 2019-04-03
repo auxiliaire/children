@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="preference">
+            <h2><span>Preference</span> {{preference.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Weight</span></dt>
+                <dd>
+                    <span>{{preference.weight}}</span>
+                </dd>
+                <dt><span>Meal</span></dt>
+                <dd>
+                    <div *ngIf="preference.meal">
+                        <a [routerLink]="['/meal', preference.meal?.id, 'view']">{{preference.meal?.name}}</a>
+                    </div>
+                </dd>
+                <dt><span>Child</span></dt>
+                <dd>
+                    <div *ngIf="preference.child">
+                        <a [routerLink]="['/child', preference.child?.id, 'view']">{{preference.child?.name}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/preference', preference.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

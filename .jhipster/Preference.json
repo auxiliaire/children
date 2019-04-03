@@ -1,0 +1,38 @@
+{
+    "name": "Preference",
+    "fields": [
+        {
+            "fieldName": "weight",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "meal",
+            "otherEntityRelationshipName": "preference",
+            "relationshipName": "meal",
+            "otherEntityField": "name",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "child",
+            "otherEntityRelationshipName": "preferences",
+            "relationshipName": "child",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20190403162257",
+    "entityTableName": "preference",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="house">
+            <h2><span>House</span> {{house.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Address</span></dt>
+                <dd>
+                    <span>{{house.address}}</span>
+                </dd>
+                <dt><span>Zip Code</span></dt>
+                <dd>
+                    <span>{{house.zipCode}}</span>
+                </dd>
+                <dt><span>Type</span></dt>
+                <dd>
+                    <span>{{house.type}}</span>
+                </dd>
+                <dt><span>Person</span></dt>
+                <dd>
+                    <div *ngIf="house.person">
+                        <a [routerLink]="['/person', house.person?.id, 'view']">{{house.person?.name}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/house', house.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

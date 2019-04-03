@@ -1,0 +1,62 @@
+<div>
+    <h2 id="page-heading">
+        <span>Children</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-child" [routerLink]="['/child/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Child
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="children">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Age</span></th>
+            <th><span>Person</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let child of children ;trackBy: trackId">
+                <td><a [routerLink]="['/child', child.id, 'view' ]">{{child.id}}</a></td>
+                <td>{{child.name}}</td>
+                <td>{{child.age}}</td>
+                <td>
+                    <div *ngIf="child.person">
+                        <a [routerLink]="['../person', child.person?.id, 'view' ]" >{{child.person?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/child', child.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/child', child.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'child', { outlets: { popup: child.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

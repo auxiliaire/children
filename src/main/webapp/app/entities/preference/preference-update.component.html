@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-preference-heading">Create or edit a Preference</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!preference.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="preference.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_weight">Weight</label>
+                    <input type="number" class="form-control" name="weight" id="field_weight"
+                        [(ngModel)]="preference.weight" required/>
+                    <div [hidden]="!(editForm.controls.weight?.dirty && editForm.controls.weight?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.weight?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.weight?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_meal">Meal</label>
+                    <select class="form-control" id="field_meal" name="meal" [(ngModel)]="preference.meal">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="mealOption.id === preference.meal?.id ? preference.meal : mealOption" *ngFor="let mealOption of meals; trackBy: trackMealById">{{mealOption.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_child">Child</label>
+                    <select class="form-control" id="field_child" name="child" [(ngModel)]="preference.child" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="childOption.id === preference.child?.id ? preference.child : childOption" *ngFor="let childOption of children; trackBy: trackChildById">{{childOption.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
