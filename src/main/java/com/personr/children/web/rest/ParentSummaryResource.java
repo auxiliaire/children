@@ -84,6 +84,17 @@ public class ParentSummaryResource {
     }
 
     /**
+     * GET  /persons/children : get all the parentSummaries.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of parentSummaries in body
+     */
+    @GetMapping("/persons/children")
+    public List<ParentSummary> getPersonsChildren() {
+        log.debug("REST request to get all ParentSummaries");
+        return parentSummaryRepository.findAll();
+    }
+
+    /**
      * GET  /parent-summaries/:id : get the "id" parentSummary.
      *
      * @param id the id of the parentSummary to retrieve
