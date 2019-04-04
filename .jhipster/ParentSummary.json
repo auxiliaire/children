@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "amountOfPersons",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "amountOfChildren",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20190404172603",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "parent_summary",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

@@ -12,6 +12,7 @@
     <include file="config/liquibase/changelog/20190403162259_added_entity_House.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190404054040_added_entity_Daughter.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190404070304_added_entity_Son.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190404172603_added_entity_ParentSummary.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20190403162256_added_entity_constraints_Child.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190403162257_added_entity_constraints_Preference.xml" relativeToChangelogFile="false"/>

@@ -47,6 +47,7 @@ public class CacheConfiguration {
             cm.createCache(com.personr.children.domain.House.class.getName(), jcacheConfiguration);
             cm.createCache(com.personr.children.domain.Daughter.class.getName(), jcacheConfiguration);
             cm.createCache(com.personr.children.domain.Son.class.getName(), jcacheConfiguration);
+            cm.createCache(com.personr.children.domain.ParentSummary.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
