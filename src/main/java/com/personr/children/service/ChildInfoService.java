@@ -5,6 +5,7 @@ import com.personr.children.repository.ChildRepository;
 import com.personr.children.service.dto.ChildInfoDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +23,7 @@ public class ChildInfoService {
         this.childRepository = childRepository;
     }
 
+    @Cacheable("com.personr.children.service.ChildInfoService.favorites")
     public Optional<ChildInfoDTO> getFavorite(Long id) {
         Preference preference = childRepository.getFavorite(id);
         Optional re;
