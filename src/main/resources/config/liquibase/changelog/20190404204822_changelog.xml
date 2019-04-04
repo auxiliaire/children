@@ -1,0 +1,202 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="vikto (generated)" id="1554403707432-1">
+        <createTable tableName="child">
+            <column name="gender" type="VARCHAR(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="childPK"/>
+            </column>
+            <column name="age" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bicycle_color" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hair_color" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="person_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-2">
+        <createTable tableName="house">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="housePK"/>
+            </column>
+            <column name="address" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="jhi_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="zip_code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="person_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-3">
+        <createTable tableName="jhi_authority">
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-4">
+        <createTable tableName="jhi_persistent_audit_event">
+            <column autoIncrement="true" name="event_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jhi_persistent_audit_eventPK"/>
+            </column>
+            <column name="event_date" type="TIMESTAMP"/>
+            <column name="event_type" type="VARCHAR(255)"/>
+            <column name="principal" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-5">
+        <createTable tableName="jhi_persistent_audit_evt_data">
+            <column name="event_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-6">
+        <createTable tableName="jhi_user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jhi_userPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP"/>
+            <column name="activated" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="activation_key" type="VARCHAR(20)"/>
+            <column name="email" type="VARCHAR(254)"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="image_url" type="VARCHAR(256)"/>
+            <column name="lang_key" type="VARCHAR(6)"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="login" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password_hash" type="VARCHAR(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reset_date" type="TIMESTAMP"/>
+            <column name="reset_key" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-7">
+        <createTable tableName="jhi_user_authority">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-8">
+        <createTable tableName="meal">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="mealPK"/>
+            </column>
+            <column name="invented" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-9">
+        <createTable tableName="parent_summary">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="parent_summaryPK"/>
+            </column>
+            <column name="amount_of_children" type="BIGINT"/>
+            <column name="amount_of_persons" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-10">
+        <createTable tableName="person">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="personPK"/>
+            </column>
+            <column name="age" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-11">
+        <createTable tableName="preference">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="preferencePK"/>
+            </column>
+            <column name="weight" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="child_id" type="BIGINT"/>
+            <column name="meal_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-12">
+        <addPrimaryKey columnNames="event_id, name" tableName="jhi_persistent_audit_evt_data"/>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-13">
+        <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-14">
+        <addPrimaryKey columnNames="name" constraintName="jhi_authorityPK" tableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-15">
+        <addUniqueConstraint columnNames="person_id" constraintName="UC_HOUSEPERSON_ID_COL" tableName="house"/>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-16">
+        <addUniqueConstraint columnNames="email" constraintName="UC_JHI_USEREMAIL_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-17">
+        <addUniqueConstraint columnNames="login" constraintName="UC_JHI_USERLOGIN_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-18">
+        <addUniqueConstraint columnNames="meal_id" constraintName="UC_PREFERENCEMEAL_ID_COL" tableName="preference"/>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-19">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="jhi_user_authority" constraintName="FK290okww5jujghp4el5i7mgwu0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-20">
+        <addForeignKeyConstraint baseColumnNames="event_id" baseTableName="jhi_persistent_audit_evt_data" constraintName="FK2ehnyx2si4tjd2nt4q7y40v8m" deferrable="false" initiallyDeferred="false" referencedColumnNames="event_id" referencedTableName="jhi_persistent_audit_event"/>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-21">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="jhi_user_authority" constraintName="FK4psxl0jtx6nr7rhqbynr6itoc" deferrable="false" initiallyDeferred="false" referencedColumnNames="name" referencedTableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-22">
+        <addForeignKeyConstraint baseColumnNames="child_id" baseTableName="preference" constraintName="FK7jbu2l66dlxaf1g4adrvht0f5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="child"/>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-23">
+        <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="house" constraintName="FKkldmkahebcv2wk4tm83o4avup" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="person"/>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-24">
+        <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="child" constraintName="FKt0jlc7021ggk9gc6bxxdv41gm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="person"/>
+    </changeSet>
+    <changeSet author="vikto (generated)" id="1554403707432-25">
+        <addForeignKeyConstraint baseColumnNames="meal_id" baseTableName="preference" constraintName="FKtbhxis35k7t0nqqkhhldldpfl" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="meal"/>
+    </changeSet>
+</databaseChangeLog>
