@@ -2,6 +2,8 @@ package com.personr.children.web.rest;
 import com.personr.children.domain.Child;
 import com.personr.children.domain.Preference;
 import com.personr.children.repository.ChildRepository;
+import com.personr.children.service.ChildInfoService;
+import com.personr.children.service.dto.ChildInfoDTO;
 import com.personr.children.web.rest.errors.BadRequestAlertException;
 import com.personr.children.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -30,8 +32,11 @@ public class ChildResource {
 
     private final ChildRepository childRepository;
 
-    public ChildResource(ChildRepository childRepository) {
+    private final ChildInfoService childInfoService;
+
+    public ChildResource(ChildRepository childRepository, ChildInfoService childInfoService) {
         this.childRepository = childRepository;
+        this.childInfoService = childInfoService;
     }
 
     /**
@@ -105,10 +110,10 @@ public class ChildResource {
      * @return the ResponseEntity with status 200 (OK) and with body the child, or with status 404 (Not Found)
      */
     @GetMapping("/child/info/{id}")
-    public ResponseEntity<Preference> getChildInfo(@PathVariable Long id) {
+    public ResponseEntity<ChildInfoDTO> getChildInfo(@PathVariable Long id) {
         log.debug("REST request to get Preference (child info) : {}", id);
-        Optional<Preference> pref = Optional.ofNullable(childRepository.getFavorite(id));
-        return ResponseUtil.wrapOrNotFound(pref);
+        Optional<ChildInfoDTO> childInfoDTO = childInfoService.getFavorite(id);
+        return ResponseUtil.wrapOrNotFound(childInfoDTO);
     }
 
     /**

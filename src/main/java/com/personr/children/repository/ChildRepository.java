@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ChildRepository extends JpaRepository<Child, Long> {
 
-    @Query("SELECT p.meal, p.child.parent FROM Preference p WHERE p.child.id = :id AND p.weight = (SELECT max(p.weight) FROM Preference p WHERE p.child.id = :id)")
+    @Query("SELECT p FROM Preference p WHERE p.child.id = :id AND p.weight = (SELECT max(p.weight) FROM Preference p WHERE p.child.id = :id)")
     Preference getFavorite(@Param("id") Long id);
 
 }
