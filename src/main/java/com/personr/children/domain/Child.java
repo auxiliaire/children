@@ -9,7 +9,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
@@ -17,32 +16,38 @@ import java.util.Objects;
 /**
  * A Child.
  */
-@Entity
+@Entity(name = "Child")
 @Table(name = "child")
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Child implements Serializable {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(
+    discriminatorType = DiscriminatorType.STRING,
+    name = "gender",
+    columnDefinition = "VARCHAR(8)"
+)
+public class Child {
 
     private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
 
     @NotNull
     @Size(min = 3)
     @Column(name = "name", nullable = false)
-    private String name;
+    protected String name;
 
     @NotNull
     @Column(name = "age", nullable = false)
-    private Integer age;
+    protected Integer age;
 
     @OneToMany(mappedBy = "child")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Preference> preferences = new HashSet<>();
+    protected Set<Preference> preferences = new HashSet<>();
     @ManyToOne
+    @JoinColumn(name = "person_id")
     @JsonIgnoreProperties("children")
-    private Person parent;
+    protected Person parent;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {

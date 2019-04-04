@@ -1,9 +1,10 @@
 package com.personr.children.web.rest;
 import com.personr.children.domain.Child;
-import com.personr.children.domain.Preference;
 import com.personr.children.repository.ChildRepository;
 import com.personr.children.service.ChildInfoService;
+import com.personr.children.service.ColorService;
 import com.personr.children.service.dto.ChildInfoDTO;
+import com.personr.children.service.dto.ColorDTO;
 import com.personr.children.web.rest.errors.BadRequestAlertException;
 import com.personr.children.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -34,9 +35,12 @@ public class ChildResource {
 
     private final ChildInfoService childInfoService;
 
-    public ChildResource(ChildRepository childRepository, ChildInfoService childInfoService) {
+    private final ColorService colorService;
+
+    public ChildResource(ChildRepository childRepository, ChildInfoService childInfoService, ColorService colorService) {
         this.childRepository = childRepository;
         this.childInfoService = childInfoService;
+        this.colorService = colorService;
     }
 
     /**
@@ -114,6 +118,19 @@ public class ChildResource {
         log.debug("REST request to get Preference (child info) : {}", id);
         Optional<ChildInfoDTO> childInfoDTO = childInfoService.getFavorite(id);
         return ResponseUtil.wrapOrNotFound(childInfoDTO);
+    }
+
+    /**
+     * GET  /child/info/:id : get the preference for "id" child.
+     *
+     * @param id the id of the child to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the child, or with status 404 (Not Found)
+     */
+    @GetMapping("/color/{id}")
+    public ResponseEntity<ColorDTO> getColor(@PathVariable Long id) {
+        log.debug("REST request to get Preference (child info) : {}", id);
+        Optional<ColorDTO> colorDTO = colorService.getColor(id);
+        return ResponseUtil.wrapOrNotFound(colorDTO);
     }
 
     /**

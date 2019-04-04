@@ -1,0 +1,40 @@
+entity Person {
+	name String required minlength(3),
+	age Integer required
+}
+
+entity Child {
+	name String required minlength(3),
+    age Integer required
+}
+
+entity Preference {
+	weight Integer required
+}
+
+entity Meal {
+	name String required minlength(3),
+    invented ZonedDateTime required
+}
+
+enum HouseType {
+	FLAT,
+    HOUSE,
+    ESTATE
+}
+
+entity House {
+	address String required minlength(3),
+    zipCode String required minlength(3),
+    type HouseType required
+}
+
+relationship OneToMany {
+	Person{children(name)} to Child{parent(name)},
+	Child{preferences(weight)} to Preference{child(name)}
+}
+
+relationship OneToOne {
+	House{person(name)} to Person{house},
+    Preference{meal(name)} to Meal
+}

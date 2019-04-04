@@ -31,6 +31,14 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'child',
                 loadChildren: './child/child.module#ChildrenChildModule'
+            },
+            {
+                path: 'daughter',
+                loadChildren: './daughter/daughter.module#ChildrenDaughterModule'
+            },
+            {
+                path: 'son',
+                loadChildren: './son/son.module#ChildrenSonModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])
